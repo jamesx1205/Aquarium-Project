@@ -26,19 +26,21 @@ public class AquaSimApplication
         System.out.println("This is mine aquarium project.");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
+        Random generator = new Random();
+        //int randNum = generator.nextInt(10);
 
         // Construct the aquarium.  Specify its dimensions when creating it.
         Aquarium aqua;                 // create reference to an Aquarium ...
-        aqua = new Aquarium(600, 480); // ... object that has now been created
+        aqua = new Aquarium(1000,1200); // ... object that has now been created
 
         // Construct fish and add them to the aquarium.
         //      CODE MISSING HERE!
         // Add aquafish to aquarium
-        AquaFish vayne = new AquaFish(aqua);
+        AquaFish vayne = new AquaFish(aqua,Color.red);
         aqua.add(vayne);
-        AquaFish kaisa = new AquaFish(aqua);
+        AquaFish kaisa = new AquaFish(aqua, Color.blue);
         aqua.add(kaisa);
-        AquaFish caitlyn = new AquaFish(aqua);
+        AquaFish caitlyn = new AquaFish(aqua, Color.blue);
         aqua.add(caitlyn);
 
         // Construct a graphical user interface (GUI) to display and control
@@ -61,10 +63,34 @@ public class AquaSimApplication
 
         // Make the fish move and redisplay.
         //      CODE MISSING HERE!
-        vayne.moveForward();
-        kaisa.moveForward();
-        caitlyn.moveForward();
+            if(vayne.atWall())
+        {
+            vayne.changeDir();
+        }
+        else
+        {
+            vayne.moveForward();
+        }
+        
+        if(kaisa.atWall())
+        {
+            kaisa.changeDir();
+        }
+        else
+        {
+            kaisa.moveForward();
+        }
+        if(caitlyn.atWall())
+        {
+            caitlyn.changeDir();
+        }
+        else
+        {
+            caitlyn.moveForward();
+        }
+
         userInterface.showAquarium();
+
         
 
 
