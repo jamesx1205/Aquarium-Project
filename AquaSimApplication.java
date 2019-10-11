@@ -21,12 +21,13 @@ public class AquaSimApplication
      *  This is the main function.  It executes the program.
      *  @param    String args[] is never used
      **/
+    private static Random generator;
     public static void main(String args[])
     {
-        System.out.println("This is mine aquarium project.");
+        System.out.println("This is LOL ADC aquarium project.");
 
         // CONSTRUCT OBJECTS NEEDED FOR THE AQUARIUM SIMULATION.
-        Random generator = new Random();
+        generator = new Random();
         //int randNum = generator.nextInt(10);
 
         // Construct the aquarium.  Specify its dimensions when creating it.
@@ -36,12 +37,17 @@ public class AquaSimApplication
         // Construct fish and add them to the aquarium.
         //      CODE MISSING HERE!
         // Add aquafish to aquarium
-        AquaFish vayne = new AquaFish(aqua,Color.red);
+        AquaFish vayne = new AquaFish(aqua,getColor());
         aqua.add(vayne);
-        AquaFish kaisa = new AquaFish(aqua, Color.blue);
+        AquaFish kaisa = new AquaFish(aqua, getColor());
         aqua.add(kaisa);
-        AquaFish caitlyn = new AquaFish(aqua, Color.blue);
+        AquaFish caitlyn = new AquaFish(aqua, getColor());
         aqua.add(caitlyn);
+        AquaFish jinx = new AquaFish(aqua, getColor());
+        aqua.add(jinx);
+        AquaFish xayah = new AquaFish(aqua, getColor());
+        aqua.add(xayah);
+        
 
         // Construct a graphical user interface (GUI) to display and control
         // the simulation.  The user interface needs to know about the
@@ -63,7 +69,9 @@ public class AquaSimApplication
 
         // Make the fish move and redisplay.
         //      CODE MISSING HERE!
-            if(vayne.atWall())
+        for(int i=0; i>=0; i++)
+        {
+        if(vayne.atWall())
         {
             vayne.changeDir();
         }
@@ -71,7 +79,6 @@ public class AquaSimApplication
         {
             vayne.moveForward();
         }
-        
         if(kaisa.atWall())
         {
             kaisa.changeDir();
@@ -79,6 +86,22 @@ public class AquaSimApplication
         else
         {
             kaisa.moveForward();
+        }
+        if(jinx.atWall())
+        {
+            jinx.changeDir();
+        }
+        else
+        {
+            jinx.moveForward();
+        }
+        if(xayah.atWall())
+        {
+            xayah.changeDir();
+        }
+        else
+        {
+            xayah.moveForward();
         }
         if(caitlyn.atWall())
         {
@@ -88,8 +111,8 @@ public class AquaSimApplication
         {
             caitlyn.moveForward();
         }
-
         userInterface.showAquarium();
+    }
 
         
 
@@ -100,5 +123,23 @@ public class AquaSimApplication
         userInterface.println ("Close GUI display window to quit.");
 
     }//end main
+    
+    public static Color getColor()
+    {
+        int randNum = generator.nextInt(5);
+        if(randNum==0)
+        return Color.red;
+        else if (randNum==1)
+        return Color.orange;
+        else if(randNum==2)
+        return Color.yellow;
+        else if(randNum==3)
+        return Color.green;
+        else if(randNum==4)
+        return Color.blue;
+        else
+        return Color.magenta;
+    }
+
 
 }//end class
