@@ -47,13 +47,16 @@ public class AquaSimApplication
         aqua.add(jinx);
         AquaFish xayah = new AquaFish(aqua, getColor());
         aqua.add(xayah);
-        
+        AquaFish MF = new AquaFish(aqua, getColor());
+        aqua.add(MF);
+        AquaFish kalista = new AquaFish(aqua, getColor());
+        aqua.add(kalista);
 
         // Construct a graphical user interface (GUI) to display and control
         // the simulation.  The user interface needs to know about the
         // aquarium, so we pass aqua to the user interface constructor.
         AquaSimGUI userInterface;              // create reference to GUI ...
-        userInterface = new AquaSimGUI(aqua);  // ... and then GUI itself
+        userInterface = new AquaSimGUI(aqua,true);  // ... and then GUI itself
 
         // Tell the user how to start the aquarium simulation.
         System.out.println("Press the Start button to start the simulation.");
@@ -69,7 +72,9 @@ public class AquaSimApplication
 
         // Make the fish move and redisplay.
         //      CODE MISSING HERE!
-        for(int i=0; i>=0; i++)
+        
+        
+        for(int steps=0; steps<userInterface.getNumberOfSteps(); steps++)
         {
         if(vayne.atWall())
         {
@@ -111,6 +116,22 @@ public class AquaSimApplication
         {
             caitlyn.moveForward();
         }
+        if(MF.atWall())
+        {
+            MF.changeDir();
+        }
+        else
+        {
+            MF.moveForward();
+        }
+        if(kalista.atWall())
+        {
+            kalista.changeDir();
+        }
+        else
+        {
+            kalista.moveForward();
+        }
         userInterface.showAquarium();
     }
 
@@ -140,6 +161,13 @@ public class AquaSimApplication
         else
         return Color.magenta;
     }
-
-
+    
+    public static boolean changeDir()
+    {
+        random.getInt
+        if(randNum==0)
+        return change;
+        
+    }
+    
 }//end class
