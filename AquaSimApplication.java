@@ -164,10 +164,9 @@ public class AquaSimApplication
     
     public static boolean changeDir()
     {
-        random.getInt
-        if(randNum==0)
-        return change;
-        
+        if (generator.nextInt(4) ==0)
+            return true;
+        return false;
     }
     
 }//end class
